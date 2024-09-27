@@ -9,6 +9,7 @@ def single_root_words(root_word, *other_words):
         j = s.count(root_word)
         if j == 1:
             same_words.append(i)
+            continue
         j = root_word.count(s)
         if j == 1:
             same_words.append(i)
