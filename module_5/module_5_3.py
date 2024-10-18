@@ -67,13 +67,12 @@ class House:
             return self
 
     def __iadd__(self, other):
-        return self + other
-        # if isinstance(other, House):
-        #     self.number_of_floors += other.number_of_floors
-        #     return self
-        # elif isinstance(other, int):
-        #     self.number_of_floors += other
-        #     return self
+        if isinstance(other, House):
+            self.number_of_floors += other.number_of_floors
+            return self
+        elif isinstance(other, int):
+            self.number_of_floors += other
+            return self
 
     def __radd__(self, other):
         return self + other
