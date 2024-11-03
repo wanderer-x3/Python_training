@@ -14,13 +14,14 @@ class WordsFinder:
                 for line in file:
                     slug = ''
                     for s in line.lower():
-                        if s in '!?:;.,=-':
-                            slug += ''
-                        elif s in '\n':
+                        if s in '\t!?:;.,=-—\n':
                             slug += ''
                         else:
                             slug += s
                     lst_word += slug.split(' ')
+                for i in lst_word:
+                    if i == '':
+                        lst_word.remove('')
             self.all_words[name] = lst_word
         return self.all_words
 
