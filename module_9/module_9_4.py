@@ -1,8 +1,9 @@
 from random import choice
+
 first = 'Мама мыла раму'
 second = 'Рамена мало было'
 
-print(list(map(lambda first, second: True if first == second else False, first, second)))
+print(list(map(lambda first, second: first == second, first, second)))
 
 
 def get_advanced_writer(file_name):
@@ -10,7 +11,7 @@ def get_advanced_writer(file_name):
     def write_everything(*data_set):
         nonlocal file_name
         try:
-            with open(file_name, 'w') as file:
+            with open(file_name, 'w', encoding='utf-8') as file:
                 for data in data_set:
                     data = str(data)
                     file.writelines(data + '\n')
