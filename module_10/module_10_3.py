@@ -8,8 +8,8 @@ class Bank:
         self.lock = threading.Lock()
 
     def deposit(self):
-        for oper in range(10):
-            if self.balance <= 500 and self.lock.locked():
+        for oper in range(100):
+            if self.balance >= 500 and self.lock.locked():
                 self.lock.release()
             else:
                 number = random.randint(50, 500)
@@ -18,7 +18,7 @@ class Bank:
                 time.sleep(0.001)
 
     def take(self):
-        for oper in range(10):
+        for oper in range(100):
             number = random.randint(50, 500)
             print(f'Запрос на {number}')
             if number <= self.balance:
@@ -41,6 +41,3 @@ if __name__ == '__main__':
     th2.join()
 
     print(f'Итоговый баланс: {bk.balance}')
-
-
-
