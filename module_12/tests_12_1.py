@@ -1,7 +1,5 @@
 from unittest import TestCase
-import runner
 from module_12.runner import Runner
-
 
 class RunnerTest(TestCase):
     def test_walk(self):
