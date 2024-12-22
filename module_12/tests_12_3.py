@@ -6,7 +6,7 @@ from runner_and_tournament import Runner, Tournament
 def if_frozen(test_func):
     def wrapper(self, *args, **kwargs):
         if getattr(self, 'is_frozen'):
-            print('Тесты в этом кейсе заморожены')
+            # print('Тесты в этом кейсе заморожены')
             raise unittest.SkipTest('Тесты в этом кейсе заморожены')
         return test_func(self, *args, **kwargs)
 
