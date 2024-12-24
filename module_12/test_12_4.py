@@ -3,9 +3,14 @@ import logging
 
 from rt_with_exceptions import Runner
 
+logging.basicConfig(
+    filename='runner_tests.log',
+    filemode='w',
+    level=logging.INFO,
+    encoding='utf-8',
+    format='%(asctime)s - %(levelname)s - %(message)s')
 
 class RunnerTest(TestCase):
-
     def test_walk(self):
         try:
             w = Runner("test_walk", -5)
@@ -26,18 +31,13 @@ class RunnerTest(TestCase):
             logging.warning(f"Неверный тип данных для объекта Runner: {e}")
 
     def test_challenge(self):
-        r = Runner('test_run', 5)
-        w = Runner("test_walk", 5)
+        r = Runner('test_run')
+        w = Runner("test_walk")
         for _ in range(10):
             r.run()
             w.walk()
         self.assertNotEqual(r.distance, w.distance)
 
+
 if __name__ == '__main__':
-    logging.basicConfig(
-        level=logging.INFO,
-        filename='runner_tests.log',
-        filemode='w',
-        encoding='utf-8',
-        format='%(asctime)s - %(levelname)s - %(message)s'
-    )
+    RunnerTest()
